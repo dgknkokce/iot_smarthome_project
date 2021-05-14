@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateUsersTable extends Migration
+class CreateSensorsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,16 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('sensors', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('device_id')->constrained()->onDelete('restrict');
             $table->string('name');
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->boolean('status');
             $table->timestamps();
         });
         Artisan::call('db:seed', [
-            '--class' => UserSeeder::class
+            '--class' => SensorSeeder::class
         ]);
-
     }
 
     /**
@@ -33,6 +32,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('sensors');
     }
 }
