@@ -24,5 +24,13 @@ class SensorSeeder extends Seeder
         	'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 			'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
+        DB::table('sensors')->insert([
+            'id' => 2,
+            'device_id' => 1,
+            'name' => 'light',
+            'status' => false,
+            'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
+            'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
+        ]);
     }
 }

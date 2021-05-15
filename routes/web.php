@@ -17,6 +17,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::get('/dashboard', [App\Http\Controllers\DeviceController::class, 'index'])->middleware(['auth'])->name('dashboard');
+Route::resource('/devices', 'App\Http\Controllers\DeviceController')->middleware(['auth']);
+Route::resource('/sensors', 'App\Http\Controllers\SensorController')->middleware(['auth']);
+Route::resource('/sensorproperties', 'App\Http\Controllers\SensorpropertyController')->middleware(['auth']);
 /*Route::get('/dashboard', function () {
 	$devices = Auth::user()->devices->get();
     return view('dashboard', [

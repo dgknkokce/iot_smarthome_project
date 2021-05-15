@@ -19,7 +19,7 @@
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200">
                     <h5 class="card-title"> {{ $device->name }} </h5>
-                    <a href="#" class="btn btn-primary">Details</a>
+                    <a href="/devices/{{ $device->id }}" class="btn btn-primary">Details</a>
                 </div>
             </div>
         </div>

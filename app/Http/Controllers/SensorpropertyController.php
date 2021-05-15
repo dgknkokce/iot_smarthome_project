@@ -64,12 +64,19 @@ class SensorpropertyController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Sensorproperty  $sensorproperty
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Sensorproperty $sensorproperty)
+    public function update(Request $request, $id)
     {
-        //
+        $sensorproperty = Sensorproperty::find($id);
+        $sensorproperty->id = $sensorproperty->id;
+        $sensorproperty->sensor_id = $sensorproperty->sensor_id;
+        $sensorproperty->property_id = $sensorproperty->property_id;
+        $sensorproperty->property_value = request('property_value');
+        $sensorproperty->save();
+
+        return redirect()->back()->with('success', 'Sensor Updateed Succesfully');
     }
 
     /**

@@ -47,12 +47,18 @@ class DeviceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Device  $device
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Device $device)
+    public function show($id)
     {
-        //
+        $device = Device::find($id);
+        $sensors = $device->sensors()->get();
+        //dd($sensors);
+        return view('devices.show', [
+            'device' => $device,
+            'sensors' => $sensors
+        ]);
     }
 
     /**

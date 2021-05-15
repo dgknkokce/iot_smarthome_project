@@ -41,12 +41,17 @@ class SensorController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Sensor  $sensor
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Sensor $sensor)
+    public function show($id)
     {
-        //
+        $sensor = Sensor::find($id);
+        $sensorproperties = $sensor->sensorproperties()->get();
+        return view('sensors.show', [
+            'sensor' => $sensor,
+            'sensorproperties' => $sensorproperties
+        ]);
     }
 
     /**
