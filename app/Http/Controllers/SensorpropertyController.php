@@ -76,7 +76,7 @@ class SensorpropertyController extends Controller
         $sensorproperty->property_value = request('property_value');
         $sensorproperty->save();
 
-        return redirect()->back()->with('success', 'Sensor Updateed Succesfully');
+        return redirect()->route('sensors.show', $sensorproperty->sensor_id)->with('success', 'Sensor Updateed Succesfully');
     }
 
     /**

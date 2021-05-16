@@ -15,25 +15,25 @@
           </thead>
           <tbody>
             @foreach ($sensorproperties as $sensorproperty)
+            <form method="POST" action="/sensorproperties/{{$sensorproperty->id}}">
+              @csrf
+              @method('PUT')
             <tr>
               <td>{{$sensorproperty->property->name}}</td>
               <td>
-                <select type="select" id="property_value" name="property_value" value="{{$sensorproperty->property_value}}">
+                <select type="select" id="property_value" name="property_value" value="{{ old('property_value') }}">
                   @for ($i = 0; $i < 101; $i++)
                   <option value="{{$i}}" id="{{$i}}">{{$i}}</option>
                   @endfor
                 </select>
               </td>
               <td>
-                <form method="POST" action="/sensorproperties/{{$sensorproperty->id}}">
-                  @csrf
-                  @method('PUT')
-                  <input class="btn btn-primary" type="submit" value="Update"/>
-                </form>
+                <input class="button is-warning ml-3" type="submit" value="Update"/>
               </td>
             </tr>
             @endforeach
             </tbody>
+          </form>
         </table>
     </div>
 </x-app-layout>
