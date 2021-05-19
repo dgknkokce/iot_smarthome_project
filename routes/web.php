@@ -26,5 +26,7 @@ Route::resource('/sensorproperties', 'App\Http\Controllers\SensorpropertyControl
     	$devices => $devices
     ]);
 })->middleware(['auth'])->name('dashboard');*/
+Route::get('/getsound', [App\Http\Controllers\DevicerequestController::class, 'getsound'])->name('getsound');
+Route::get('/getred', [App\Http\Controllers\DevicerequestController::class, 'getRvalue'])->name('getred');
 
 require __DIR__.'/auth.php';

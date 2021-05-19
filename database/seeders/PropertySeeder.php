@@ -17,7 +17,7 @@ class PropertySeeder extends Seeder
     {
         DB::table('properties')->insert([
             'id' => 1,
-        	'name' => 'voice level',
+        	'name' => 'sound level',
         	'created_at' => Carbon::now()->format('Y-m-d H:i:s'),
 			'updated_at' => Carbon::now()->format('Y-m-d H:i:s'),
         ]);
