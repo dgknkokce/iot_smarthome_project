@@ -16,6 +16,7 @@ class CreatePropertiesTable extends Migration
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->tinyInteger('max_value');
             $table->timestamps();
         });
         Artisan::call('db:seed', [

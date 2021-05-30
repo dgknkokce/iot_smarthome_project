@@ -47,10 +47,8 @@ class SensorController extends Controller
     public function show($id)
     {
         $sensor = Sensor::find($id);
-        $sensorproperties = $sensor->sensorproperties()->get();
         return view('sensors.show', [
-            'sensor' => $sensor,
-            'sensorproperties' => $sensorproperties
+            'sensor' => $sensor
         ]);
     }
 
