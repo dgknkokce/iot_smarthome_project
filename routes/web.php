@@ -26,6 +26,8 @@ Route::resource('/sensorproperties', 'App\Http\Controllers\SensorpropertyControl
     	$devices => $devices
     ]);
 })->middleware(['auth'])->name('dashboard');*/
+
+//get data in JSON.
 Route::get('/getsound', [App\Http\Controllers\DevicerequestController::class, 'getsound'])->middleware(['auth'])->name('getsound');
 Route::get('/getred', [App\Http\Controllers\DevicerequestController::class, 'getRed'])->middleware(['auth'])->name('getred');
 Route::get('/getgreen', [App\Http\Controllers\DevicerequestController::class, 'getGreen'])->middleware(['auth'])->name('getgreen');

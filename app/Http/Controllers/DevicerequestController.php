@@ -43,4 +43,11 @@ class DevicerequestController extends Controller
             'b_level' => $b_level
         ]);
     }
+
+
+    public function postsound()
+    {
+        $data = Input::get('sound_level');
+        dd($data);
+    }
 }
