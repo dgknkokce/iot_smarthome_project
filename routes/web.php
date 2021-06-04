@@ -28,10 +28,10 @@ Route::resource('/sensorproperties', 'App\Http\Controllers\SensorpropertyControl
 })->middleware(['auth'])->name('dashboard');*/
 
 //get data in JSON.
-Route::get('/getsound', [App\Http\Controllers\DevicerequestController::class, 'getsound'])->middleware(['auth'])->name('getsound');
-Route::get('/getred', [App\Http\Controllers\DevicerequestController::class, 'getRed'])->middleware(['auth'])->name('getred');
-Route::get('/getgreen', [App\Http\Controllers\DevicerequestController::class, 'getGreen'])->middleware(['auth'])->name('getgreen');
-Route::get('/getblue', [App\Http\Controllers\DevicerequestController::class, 'getBlue'])->middleware(['auth'])->name('getblue');
+Route::get('/getsound', [App\Http\Controllers\DevicerequestController::class, 'getsound'])->name('getsound');
+Route::get('/getred', [App\Http\Controllers\DevicerequestController::class, 'getRed'])->name('getred');
+Route::get('/getgreen', [App\Http\Controllers\DevicerequestController::class, 'getGreen'])->name('getgreen');
+Route::get('/getblue', [App\Http\Controllers\DevicerequestController::class, 'getBlue'])->name('getblue');
 
 
 require __DIR__.'/auth.php';
