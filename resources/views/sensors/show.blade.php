@@ -15,7 +15,11 @@
           <div class="col-md-6">
             <select id="property_value" type="select" class="form-control @error('property_value') is-invalid @enderror" name="property_value" value="{{ old('property_value') }}">
               @for ($i = 0; $i < $sensorproperty->property->max_value; $i++)
-                <option value="{{$i}}" id="{{$i}}">{{$i}}</option>
+              @if ($sensorproperty->property_value == $i)
+              <option value="{{$i}}" id="{{$i}}" selected>{{$i}}</option>
+              @else
+              <option value="{{$i}}" id="{{$i}}">{{$i}}</option>
+              @endif
               @endfor
             </select>
 
