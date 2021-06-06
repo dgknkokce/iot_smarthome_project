@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DevicerequestController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post("updatesound", [DevicerequestController::class,'updateSound']);
+Route::post("updatered", [DevicerequestController::class,'updateRed']);
+Route::post("updategreen", [DevicerequestController::class,'updateGreen']);
+Route::post("updateblue", [DevicerequestController::class,'updateBlue']);

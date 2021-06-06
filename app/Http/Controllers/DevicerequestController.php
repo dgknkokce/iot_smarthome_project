@@ -44,10 +44,43 @@ class DevicerequestController extends Controller
         ]);
     }
 
-
-    public function postsound()
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateSound(Request $request)
     {
-        $data = Input::get('sound_level');
-        dd($data);
+
+        $sensorproperty = Sensorproperty::where('id', 1)->first();
+        $sensorproperty->property_value = $request->property_value;
+        $sensorproperty->save();
+        //return response()->json($sensorproperty);
+    }
+    public function updateRed(Request $request)
+    {
+
+        $sensorproperty = Sensorproperty::where('id', 2)->first();
+        $sensorproperty->property_value = $request->property_value;
+        $sensorproperty->save();
+        //return response()->json($sensorproperty);
+    }
+    public function updateGreen(Request $request)
+    {
+
+        $sensorproperty = Sensorproperty::where('id', 3)->first();
+        $sensorproperty->property_value = $request->property_value;
+        $sensorproperty->save();
+        //return response()->json($sensorproperty);
+    }
+    public function updateBlue(Request $request)
+    {
+
+        $sensorproperty = Sensorproperty::where('id', 4)->first();
+        $sensorproperty->property_value = $request->property_value;
+        $sensorproperty->save();
+        //return response()->json($sensorproperty);
     }
 }
